@@ -1,0 +1,69 @@
+.navbar {
+	border-bottom: 1px solid #d9d9d9;
+}
+.header li{
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	border-left:1px solid #d9d9d9
+}
+.header li:hover{
+	transition: all 0.8s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	background-color: #F27D00;
+}
+.header li a{
+	color: black;
+	margin: 0px;
+}
+.clicked{
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #F27D00;
+}
+.header li.clicked a{
+	color: white;
+}
+.nav-link:hover{
+	color: white;
+}
+.inline{
+	display: inline-block;
+	border: 1px solid #2f83b7;
+}
+#datepicker{
+	height: 36px;
+}
+.title{
+	text-align: center;
+    padding: 40px;
+    color: #2f83b7;
+}
+.label{
+	padding-right: 30px;
+    padding-left: 30px;
+    background-color: #10938d;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+.firstTable{
+	margin-bottom: 20px
+}
+.input {
+	padding-right: 20px;
+}
+.tableBorder{
+	border: 1px solid black;
+}
+.tableBorder tr th{
+	border: 1px solid black;
+}
+.tableBorder tr td{
+	border: 1px solid black;
+}
+.signin{
+	background: url(../images/background-image.jpg) no-repeat center center fixed;
+}
+.jumbotron{
+	background-color: #eceeefd9;
+}

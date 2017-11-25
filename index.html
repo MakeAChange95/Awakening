@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <title>AWAKENING!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/icon.png" style="height: 60px;width: 60px">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto header">
+                <li class="nav-item clicked">
+                    <a class="nav-link" href="#">DANH SÁCH VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signin.html">ĐĂNG KÍ NHẬN TIN NHẮN VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">THỐNG KÊ</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Nhập số điện thoại hoặc biển số xe" style="width: 300px">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="title">DANH SÁCH VI PHẠM</h2>
+        <table class="firstTable">
+            <tr>
+                <th class="label">Theo ngày</th>
+                <th class="input">
+                    <input type="text" name="date" id="datepicker">
+                </th>
+                <th class="label">Loại xe</th>
+                <th class="input">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Xe Ô Tô
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">Tất cả</button>
+                            <button class="dropdown-item" type="button">Xe máy</button>
+                            <button class="dropdown-item" type="button">Xe Ô Tô</button>
+                        </div>
+                    </div>
+                </th>
+                <th class="label">Loại vi phạm</th>
+                <th class="input">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tất cả
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">Vượt đèn đỏ</button>
+                            <button class="dropdown-item" type="button">Lấn làn</button>
+                            <button class="dropdown-item" type="button">Xi nhan</button>
+                            <button class="dropdown-item" type="button">Không bật đèn</button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        <table class="table tableBorder">
+            <thead>
+                <tr class="table-info">
+                    <th>STT</th>
+                    <th>Biển số xe</th>
+                    <th>Loại xe</th>
+                    <th>Loại vi phạm</th>
+                    <th>Ngày giờ</th>
+                    <th>Địa điểm</th>
+                    <th>Hình ảnh</th>
+                    <th>Thông tin chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                        <th class="abc" scope="row">1</th>
+                        <td class="abc">Mark</td>
+                        <td class="abc">Otto</td>
+                        <td class="abc">@mdo</td>
+                        <td class="abc">Mark</td>
+                        <td class="abc">Otto</td>
+                        <td class="abc">
+                            <img src="images/giadinh.jpg">
+                        </td>
+                        <td><a href="detail.html">Thông tin</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@TwBootstrap</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                     <td><a href="detail.html">Thông tin</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                     <td><a href="detail.html">Thông tin</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Larry the Bird</td>
+                    <td>@twitter</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                     <td><a href="detail.html">Thông tin</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/myJs.js"></script>
+    <script>
+    $('.header li').on('click', function() {
+        $('li.clicked').removeClass('clicked');
+        $(this).addClass('clicked');
+    });
+    </script>
+    <script>
+    $("#datepicker").datepicker();
+    </script>
+</body>
+
+</html>
