@@ -56,14 +56,30 @@
 	border: 1px solid black;
 }
 .tableBorder tr th{
+	text-align: center;
 	border: 1px solid black;
 }
 .tableBorder tr td{
 	border: 1px solid black;
+}
+.table-blue{
+	background-color: #10938d;
+	color: ư
 }
 .signin{
 	background: url(../images/background-image.jpg) no-repeat center center fixed;
 }
 .jumbotron{
 	background-color: #eceeefd9;
+}
+.photo{
+	width: 160px;
+	height: 90px;
+}
+.center{
+	padding-top: 20px;
+	text-align: center;
+}
+.tableBody:hover{
+	background-color: #d9edf77d;
 }

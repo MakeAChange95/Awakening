@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/myStyle.css">
-    <title>AWAKENING!</title>
+    <title>Awakening!</title>
 </head>
 
 <body>
@@ -50,6 +50,7 @@
                             <button class="dropdown-item" type="button">Tất cả</button>
                             <button class="dropdown-item" type="button">Xe máy</button>
                             <button class="dropdown-item" type="button">Xe Ô Tô</button>
+                            <button class="dropdown-item" type="button">Xe Đạp Điện</button>
                         </div>
                     </div>
                 </th>
@@ -61,8 +62,9 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <button class="dropdown-item" type="button">Vượt đèn đỏ</button>
                             <button class="dropdown-item" type="button">Lấn làn</button>
-                            <button class="dropdown-item" type="button">Xi nhan</button>
+                            <button class="dropdown-item" type="button">Không xi nhan</button>
                             <button class="dropdown-item" type="button">Không bật đèn</button>
+                            <button class="dropdown-item" type="button">Không đội mũ</button>
                         </div>
                     </div>
                 </th>
@@ -70,7 +72,7 @@
         </table>
         <table class="table tableBorder">
             <thead>
-                <tr class="table-info">
+                <tr class="table-blue">
                     <th>STT</th>
                     <th>Biển số xe</th>
                     <th>Loại xe</th>
@@ -78,52 +80,10 @@
                     <th>Ngày giờ</th>
                     <th>Địa điểm</th>
                     <th>Hình ảnh</th>
-                    <th>Thông tin chi tiết</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                        <th class="abc" scope="row">1</th>
-                        <td class="abc">Mark</td>
-                        <td class="abc">Otto</td>
-                        <td class="abc">@mdo</td>
-                        <td class="abc">Mark</td>
-                        <td class="abc">Otto</td>
-                        <td class="abc">
-                            <img src="images/giadinh.jpg">
-                        </td>
-                        <td><a href="detail.html">Thông tin</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@TwBootstrap</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                     <td><a href="detail.html">Thông tin</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                     <td><a href="detail.html">Thông tin</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                     <td><a href="detail.html">Thông tin</a></td>
-                </tr>
+            <tbody id="body">
+
             </tbody>
         </table>
     </div>
@@ -139,6 +99,9 @@
     </script>
     <script>
     $("#datepicker").datepicker();
+    </script>
+    <script>
+        document.onload = generateData();
     </script>
 </body>
 
