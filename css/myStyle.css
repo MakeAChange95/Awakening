@@ -99,3 +99,11 @@ p{
 .select{
 	height: 36px;
 }
+.hinh{
+	width: 250px;
+	height: 250px;
+	padding-right: 10px;
+}
+.container-count{
+	margin: 0px 10px; 
+}

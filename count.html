@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <title>Thống Kê Vi Phạm</title>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/icon.png" style="height: 60px;width: 60px">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto header">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">DANH SÁCH VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signin.html">ĐĂNG KÍ NHẬN TIN NHẮN VI PHẠM</a>
+                </li>
+                <li class="nav-item clicked">
+                    <a class="nav-link" href="count.html">THỐNG KÊ</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Nhập biển số xe" style="width: 300px">
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="title">THỐNG KÊ VI PHẠM</h2>
+        <table id="table_id2" class="table tableBorder">
+            <thead>
+                <tr class="table-blue">
+                    <th>STT</th>
+                    <th>Loại vi phạm</th>
+                    <th>Tỉ lệ vi phạm</th>
+                </tr>
+            </thead>
+            <tbody id="bodyCount"></tbody>
+        </table>
+     </div>
+    <footer style="background-color:lightgray; margin-top: 125px">
+        <p style="text-align: center">
+            <b>Make A Change</b>
+            <br /> Địa chỉ:01 Nam Kì Khởi Nghĩa, Bình Dương
+            <br /> Hotline: 0985943219
+        </p>
+    </footer>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script type="text/javascript" src="js/myJs.js"></script>
+    <script>
+    $('.header li').on('click', function() {
+        $('li.clicked').removeClass('clicked');
+        $(this).addClass('clicked');
+    });
+    </script>
+    <script>
+    $("#datepicker").datepicker();
+    </script>
+    <script>
+        document.onload = statistics();
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#table_id2').DataTable({
+            "info": false,
+            "searching": false,
+            "paging" : false,
+            "sorting": true
+        });
+    });
+    </script>
+</body>
+</html>
