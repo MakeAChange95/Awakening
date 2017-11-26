@@ -1,44 +1,88 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>THÔNG TIN CHI TIẾT</title>
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
     <link rel="stylesheet" href="css/myStyle.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 </head>
+
 <body>
+     <nav class="navbar navbar-toggleable-md navbar-fixed-top">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/icon.png" style="height: 60px;width: 60px">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto header">
+                <li class="nav-item clicked">
+                    <a class="nav-link" href="index.html">DANH SÁCH VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signin.html">ĐĂNG KÍ NHẬN TIN NHẮN VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">THỐNG KÊ</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Nhập số điện thoại hoặc biển số xe" style="width: 300px">
+                <button id="mySearch" class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
+    </nav>
     <div class="container">
         <h2 style="margin-top: 20px;color: cornflowerblue; margin-bottom: 20px;text-align: center">THÔNG TIN CHI TIẾT</h2>
         <div>
             <table border="1" style="width: 1100px">
                 <tr>
-                    <td colspan="2" style="color: white; background-color:cornflowerblue">
-                        <p><b>Vi phạm : Vượt đèn đỏ</b></p>
+                    <td  id="vipham" colspan="2" style="color: white; background-color:cornflowerblue">
+                        <p>Vi phạm : <span id="demo"></span></p>
                     </td>
                 </tr>
                 <tr>
-                    <td><p><b>Ngày giờ</b></p></td>
-                    <td style="color:red"><p>21-11-2017 - 18:16:35</p></td>
+                    <td>
+                        <p><b>Ngày giờ</b></p>
+                    </td>
+                    <td style="color:red">
+                        <p id="dateAndTime"></p>
+                    </td>
                 </tr>
                 <tr style="background-color:beige">
-                    <td><p><b>Địa điểm</b></p></td>
-                    <td><p>Đại lộ Võ Văn Kiệt</p></td>
+                    <td>
+                        <p><b>Địa điểm</b></p>
+                    </td>
+                    <td>
+                        <p id="location"></p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><p><b>Trạng thái</b></p></td>
-                    <td><p>Chưa nộp phạt</p></td>
+                    <td>
+                        <p><b>Trạng thái</b></p>
+                    </td>
+                    <td>
+                        <p>Chưa nộp phạt</p>
+                    </td>
                 </tr>
                 <tr style="background-color:beige">
-                    <td><p><b>Loại xe</b></p></td>
-                    <td><p>Xe Ô tô</p></td>
+                    <td>
+                        <p><b>Loại xe</b></p>
+                    </td>
+                    <td>
+                        <p id="typeOfTransport"></p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><p><b>Biển số xe</b></p></td>
-                    <td style="color:red"><p>61S-4889</p></td>
+                    <td>
+                        <p><b>Biển số xe</b></p>
+                    </td>
+                    <td style="color:red">
+                        <p id="numberPlate"></p>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -54,14 +98,13 @@
                 <tbody>
                     <tr>
                         <td colspan="2" id="hinhanh">
-                            <img src="images/1555.jpg"/>
+                            <img src="images/1555.jpg" />
                             <img src="images/1555_alpr.jpg" />
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
         <div>
             <table border="1" style="width: 1100px">
                 <thead>
@@ -81,7 +124,6 @@
                 </tbody>
             </table>
         </div>
-
         <div class="change">
             <a href="#" class="previous" style="text-decoration: none">&laquo; Quay lại</a>
             <a href="#" class="next" style="text-decoration: none">Tiếp theo &raquo;</a>
@@ -89,14 +131,19 @@
     </div>
     <footer style="background-color:lightgray">
         <p style="text-align: center">
-            <b>Make A Change</b><br />
-            Địa chỉ:01 Nam Kì Khởi Nghĩa, Bình Dương<br />
-            Hotline: 0985943219
+            <b>Make A Change</b>
+            <br /> Địa chỉ:01 Nam Kì Khởi Nghĩa, Bình Dương
+            <br /> Hotline: 0985943219
         </p>
     </footer>
-     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
     <script type="text/javascript" src="js/myJs.js"></script>
+    <script>
+         document.onload = generateDetail();
+    </script>
 </body>
+
 </html>

@@ -6,19 +6,20 @@
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
     <link rel="stylesheet" href="css/myStyle.css">
     <title>Awakening!</title>
 </head>
 
 <body>
     <nav class="navbar navbar-toggleable-md navbar-fixed-top">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="images/icon.png" style="height: 60px;width: 60px">
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto header">
                 <li class="nav-item clicked">
-                    <a class="nav-link" href="#">DANH SÁCH VI PHẠM</a>
+                    <a class="nav-link" href="index.html">DANH SÁCH VI PHẠM</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="signin.html">ĐĂNG KÍ NHẬN TIN NHẮN VI PHẠM</a>
@@ -28,8 +29,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Nhập số điện thoại hoặc biển số xe" style="width: 300px">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                <input class="form-control mr-sm-2 mySearch" type="text" placeholder="Nhập số điện thoại hoặc biển số xe" style="width: 300px" data-column-index='1'>
             </form>
         </div>
     </nav>
@@ -39,11 +39,11 @@
             <tr>
                 <th class="label">Theo ngày</th>
                 <th class="input">
-                    <input type="text" name="date" id="datepicker">
+                    <input type="text" name="date" id="datepicker" class="mySearch" data-column-index='4'>
                 </th>
                 <th class="label">Loại xe</th>
                 <th class="input">
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Xe Ô Tô
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -52,11 +52,18 @@
                             <button class="dropdown-item" type="button">Xe Ô Tô</button>
                             <button class="dropdown-item" type="button">Xe Đạp Điện</button>
                         </div>
-                    </div>
+                    </div> -->
+                    <select id="typeOfTransport" class="select">
+                        <option value=""></option>
+                        <option value="">Tất cả</option>
+                        <option value="Xe máy">Xe máy</option>
+                        <option value="Ô Tô">Ô Tô</option>
+                        <option value="Xe Đạp Điện">Xe Đạp Điện</option>
+                    </select>
                 </th>
                 <th class="label">Loại vi phạm</th>
                 <th class="input">
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tất cả
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -66,11 +73,19 @@
                             <button class="dropdown-item" type="button">Không bật đèn</button>
                             <button class="dropdown-item" type="button">Không đội mũ</button>
                         </div>
-                    </div>
+                    </div> -->
+                    <select id="typeOfCrime" class="select">
+                        <option value=""></option>
+                        <option value="Vượt đèn đỏ">Vượt đèn đỏ</option>
+                        <option value="Lấn làn">Lấn làn</option>
+                        <option value="Không xi nhan">Không xi nhan</option>
+                        <option value="Không bật đèn">Không bật đèn</option>
+                        <option value="Không bật đèn">Không bật đèn</option>
+                    </select>
                 </th>
             </tr>
         </table>
-        <table class="table tableBorder">
+        <table id="table_id" class="table tableBorder">
             <thead>
                 <tr class="table-blue">
                     <th>STT</th>
@@ -83,13 +98,20 @@
                 </tr>
             </thead>
             <tbody id="body">
-
             </tbody>
         </table>
     </div>
+    <footer style="background-color:lightgray">
+        <p style="text-align: center">
+            <b>Make A Change</b>
+            <br /> Địa chỉ:01 Nam Kì Khởi Nghĩa, Bình Dương
+            <br /> Hotline: 0985943219
+        </p>
+    </footer>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
     <script type="text/javascript" src="js/myJs.js"></script>
     <script>
     $('.header li').on('click', function() {
@@ -98,10 +120,32 @@
     });
     </script>
     <script>
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' }).val();
     </script>
     <script>
-        document.onload = generateData();
+    document.onload = addDataToView();
+    </script>
+    <script>
+    $.extend(true, $.fn.dataTable.defaults, {
+        "ordering": false
+    });
+    $(document).ready(function() {
+        var table = $('#table_id').DataTable({
+            dom: 'lrtip'
+        });
+
+        $('.mySearch').on('keyup change', function() {
+            //clear global search values
+            table.search('');
+            table.column($(this).data('columnIndex')).search(this.value).draw();
+        });
+        $('#typeOfTransport').on('change', function() {
+            table.search(this.value).draw();
+        });
+         $('#typeOfCrime').on('change', function() {
+            table.search(this.value).draw();
+        });
+    });
     </script>
 </body>
 

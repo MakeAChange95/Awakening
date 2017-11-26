@@ -1,5 +1,6 @@
 .navbar {
 	border-bottom: 1px solid #d9d9d9;
+	background-color: #eceeefd9;
 }
 .header li{
 	color: #000000;
@@ -64,7 +65,7 @@
 }
 .table-blue{
 	background-color: #10938d;
-	color: ư
+	color: white;
 }
 .signin{
 	background: url(../images/background-image.jpg) no-repeat center center fixed;
@@ -72,14 +73,29 @@
 .jumbotron{
 	background-color: #eceeefd9;
 }
+.navbar{
+	height: 60px;
+}
 .photo{
 	width: 160px;
 	height: 90px;
 }
 .center{
-	padding-top: 20px;
+	
 	text-align: center;
+}
+.centerHorizontal{
+	padding-top: 40px;
 }
 .tableBody:hover{
 	background-color: #d9edf77d;
+}
+p{
+	margin-bottom: 0px;
+}
+#vipham{
+	font-weight: bold;
+}
+.select{
+	height: 36px;
 }

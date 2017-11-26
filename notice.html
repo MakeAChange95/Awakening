@@ -13,15 +13,28 @@
 </head>
 
 <body>
-    <style>
-    .alert {
-        display: none;
-    }
-    </style>
-    <div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        Bạn đã đăng ký thành công
-    </div>
+     <nav class="navbar navbar-toggleable-md navbar-fixed-top">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/icon.png" style="height: 60px;width: 60px">
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto header">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">DANH SÁCH VI PHẠM</a>
+                </li>
+                <li class="nav-item clicked">
+                    <a class="nav-link" href="signin.html">ĐĂNG KÍ NHẬN TIN NHẮN VI PHẠM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">THỐNG KÊ</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Nhập số điện thoại hoặc biển số xe" style="width: 300px">
+                <button id="mySearch" class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+            </form>
+        </div>
+    </nav>
     <div class="container">
         <div class="col-sm-10" style="width: 600px; margin-left: 250px; margin-top: 50px">
             <div class="jumbotron">
@@ -52,11 +65,6 @@
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/myJs.js"></script>
-    <script>
-    $("#btnShow").click(function() {
-        $(".alert").hide().show('medium');
-    });
-    </script>
 </body>
 
 </html>
